@@ -7,7 +7,7 @@ import AddTask from './components/AddTask'
 import About from './components/About'
 
 const App = () => {
-  const [showAddTask, setShowAddTask] = useState(false)
+  const [showAddTask, setShowAddTask] = useState(true)
   const [tasks, setTasks] = useState([])
 
   // can't use directly async on useEffect like below
@@ -104,8 +104,9 @@ const App = () => {
           onAdd={() => setShowAddTask(!showAddTask)}
           showAdd={showAddTask}
         />
+        <Route path='/about' component={About} />
         <Route
-          path='/'
+          path='/react-task-tracker/'
           exact
           render={(props) => (
             <>
@@ -122,7 +123,6 @@ const App = () => {
             </>
           )}
         />
-        <Route path='/about' component={About} />
         <Footer />
       </div>
     </Router>
